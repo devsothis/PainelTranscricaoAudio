@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return redirect()->route('dashboard.index');
 });
+
+Route::middleware('auth')->prefix('dashboard')->group(function(){
+    Route::get('',[DashboardController::class,'index'])->name('dashboard.index');
+    Route::get('/filtrardata',[DashboardController::class,'filtrarPorData'])->name('dashboard.filtrar.data');
+});
+
+
+Auth::routes(['register' => false]);
