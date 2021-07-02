@@ -102,7 +102,7 @@ export default {
     this.items = this.items.map((item) => {
       return {
         ...item,
-        possuiAudio: item.hasAudio == 0 ? "Sim" : "Não",
+        possuiAudio: item.hasAudio == 0 ? "NÃO" : "SIM",
       };
     });
   },
@@ -144,7 +144,7 @@ export default {
       this.items = items.map((item) => {
         return {
           ...item,
-          possuiAudio: item.hasAudio == 0 ? "Sim" : "Não",
+          possuiAudio: item.hasAudio == 0 ? "NÃO" : "SIM",
         };
       });
       this.spinner = false;
